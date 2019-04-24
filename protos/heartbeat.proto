@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+service Heartbeat {
+  rpc SendHeartbeat(HeartbeatMessage) returns (HeartbeatResponse) {}
+  rpc Join(JoinRequest) returns (JoinResponse) {}
+}
+
+message HeartbeatMessage {
+  int64 id = 1;
+  int64 token = 2;
+}
+
+message HeartbeatResponse {
+  int64 token = 1;
+}
+
+message JoinRequest {
+}
+
+message JoinResponse {
+  bool ok = 1;
+  int64 id = 2;
+}
